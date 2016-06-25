@@ -1,1 +1,31 @@
-index
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-12">
+      <table class="table table-striped">
+        <thead>
+          <th>Title</th>
+          <th width="10%">Due Date</th>
+          <th>Description</th>
+          <th>Completed</th>
+          <th>Priority</th>
+          <th>Action</th>
+        </thead>
+
+        <tbody>
+          <% @tasks.each do |task| %>
+            <tr>
+              <td><%= task.title %></td>
+              <td><%= task.duedate.strftime("%d %B %Y") %></td>
+              <td><%= task.description %></td>
+              <td><%= task.is_completed ? "Completed" : "Not yet" %></td>
+              <td><%= task.priority %></td>
+              <td>
+                <%= link_to "Destroy" %>
+              </td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
